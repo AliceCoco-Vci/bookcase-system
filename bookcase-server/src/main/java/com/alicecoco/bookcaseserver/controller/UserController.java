@@ -7,6 +7,7 @@ import com.alicecoco.bookcaseserver.entity.User;
 import com.alicecoco.bookcaseserver.service.impl.UserServiceImpl;
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
     @Autowired
     private UserServiceImpl userService;
@@ -17,9 +18,10 @@ public class UserController {
 
         User user = userService.findUserByName(username);
         if (user.getPassword().equals(password)){
-            return new Result("success", "开启成功!");
-        }else{
-            return new Result("error", "开启失败!");
+        //if(username.equals("AliceCoco")&&password.equals("123456")){
+            return new Result("success", "成功!");
+        } else{
+            return new Result("error", "失败!");
         }
     }
 }

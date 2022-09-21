@@ -15,9 +15,10 @@ import {
   LogoutOutlined,
   UserOutlined,
   DownOutlined,
+  LoginOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Layout, Menu, Divider, Dropdown } from 'antd';
+import { Layout, Menu, Divider, Dropdown, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
 import styles from './index.less'
 
@@ -43,7 +44,7 @@ function getItem(
 const headerItems: MenuProps['items'] = [
   {
     label: (
-      <Link to="/">
+      <Link to="/home">
         Home
       </Link>
     ),
@@ -118,6 +119,11 @@ const siderItems: MenuItem[] = [
   ]),
 ];
 
+const loginout = () => {
+  history.replace("/")
+  window.location.reload()
+};
+
 const AvatarMenu = () => {
   return (
     <Menu className={styles.menu}
@@ -125,13 +131,13 @@ const AvatarMenu = () => {
         {
           key: 'account',
           icon: <UserOutlined />,
-          disabled: true,
+          //disabled: true,
           label: (<Link to="/">我的账户</Link>)
         },
         {
           key: 'logout',
           icon: <LogoutOutlined />,
-          label: (<Link to="/">退出</Link>)
+          label: (<div onClick={loginout}>退出</div>)
         }
       ]}
     />

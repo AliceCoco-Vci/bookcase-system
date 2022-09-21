@@ -1,9 +1,9 @@
 import { Button, Form, Input, message } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.less';
 import { history } from 'umi';
-import {postRequest} from '../utils/request'
-import {putRequest} from '../utils/request'
+import { postRequest } from '../utils/request'
+import { putRequest } from '../utils/request'
 
 export default function HomePage() {
   const [submitting, setSubmitting] = useState(false);
@@ -14,22 +14,21 @@ export default function HomePage() {
   };
 
   const submit = async (parmas: { name: string, passwd: string }) => {
-        postRequest('/login', parmas).then(resp=> {
-          if (resp.status == 200) {
-            //成功
-            var json = resp.data;
-            if (json.status == 'success') {
-              history.push('/home',0)
-            } else {
-              message.error('1登陆失败!');
-            }
-          } else {
-            //失败
-            message.error('2登录失败!');
-          }
-        },resp=> {
-          message.error('找不到服务器⊙﹏⊙∥!');
-        });
+    postRequest('/login', parmas).then(resp => {
+      if (resp.status == 200) {
+        var json = resp.data;
+        if (json.status == 'success') {
+          history.replace("/home")
+          window.location.reload()
+        } else {
+          message.error('用户名或密码错误!');
+        }
+      } else {
+        message.error('登录失败!');
+      }
+    }, resp => {
+      message.error('找不到服务器QAQ!');
+    });
   };
 
   return (
@@ -38,7 +37,7 @@ export default function HomePage() {
         name="basic"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
-        initialValues={{ remember: true }}
+        initialValues={{ username: "AliceCoco", password: "123456", remember: true }}
         onFinish={submit}
         onFinishFailed={onFinishFailed}
         autoComplete="off"

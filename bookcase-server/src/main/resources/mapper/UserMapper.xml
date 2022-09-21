@@ -9,7 +9,7 @@
         <result property="password" column="password"/>
     </resultMap>
 
-    <select id="findUserByName" resultMap="com.alicecoco.bookcaseserver.entity.Result">
+    <select id="findUserByName" resultMap="result">
         SELECT * FROM user where username=#{username}
     </select>
 </mapper>
