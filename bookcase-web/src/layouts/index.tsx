@@ -99,7 +99,7 @@ const headerItems: MenuProps['items'] = [
 ];
 const siderItems: MenuItem[] = [
   getItem('Analysis', '/bookcase/analysis', <PieChartOutlined />),
-  getItem('Entry', '/bookcase/entry', <DesktopOutlined />),
+  getItem('Input', '/bookcase/Input', <DesktopOutlined />),
   getItem('Option 3', '3', <ContainerOutlined />),
 
   getItem('Navigation One', 'sub1', <MailOutlined />, [

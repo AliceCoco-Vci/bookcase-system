@@ -1,8 +1,10 @@
-import { Button, Form, Input, Modal, DatePicker, Switch, InputNumber, AutoComplete } from 'antd';
+import { Button, Form, Input, Modal, DatePicker, Switch, InputNumber, AutoComplete, message } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import moment from 'moment';
+import { history } from 'umi';
+import API from '@/utils/request'
 import styles from './styles.less'
 
 interface Values {
@@ -128,12 +130,21 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
     );
 };
 
-const EntryPage = () => {
+const InputPage = () => {
     const [visible, setVisible] = useState(false);
 
-    const onCreate = (values: any) => {
-        console.log('Received values of form: ', values);
-        setVisible(false);
+    const onCreate = (values: string[]) => {
+        API.BOOK_INPUT({ ...values }).then(resp => {
+            if (resp.status == 'success') {  
+                    message.info('录入成功!');
+                    setVisible(false);           
+            } else {
+                message.error('2网络错误QAQ请稍后再试~');
+            }
+        }, resp => {
+            message.error('找不到服务器QAQ!');
+        });
+
     };
 
     return (
@@ -157,4 +168,4 @@ const EntryPage = () => {
     );
 };
 
-export default EntryPage;
+export default InputPage;

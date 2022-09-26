@@ -25,8 +25,8 @@ export default defineConfig({
         },
         {
           exact: true,
-          path: '/bookcase/entry',
-          component: '@/pages/bookcase/entry/entry',
+          path: '/bookcase/input',
+          component: '@/pages/bookcase/input/input',
           title: 'Analysis',
         },
       ],

@@ -5,6 +5,7 @@
 
 <mapper namespace="com.alicecoco.bookcaseserver.mapper.UserMapper">
     <resultMap id="result" type="com.alicecoco.bookcaseserver.entity.User">
+        <id column="id" property="id" />
         <result property="username" column="username"/>
         <result property="password" column="password"/>
     </resultMap>

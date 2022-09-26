@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alicecoco.bookcaseserver.mapper.BookMapper">
+    <resultMap id="result" type="com.alicecoco.bookcaseserver.entity.Book">
+        <id column="id" property="id" />
+        <result property="title" column="title"/>
+        <result property="author" column="author"/>
+        <result property="startday" column="startday"/>
+        <result property="price" column="price"/>
+        <result property="press" column="press"/>
+        <result property="purchaseway" column="purchaseway"/>
+        <result property="info" column="info"/>
+    </resultMap>
+
+    <insert id="inputnewbook" parameterType="org.sang.bean.Category">
+        INSERT INTO book SET title=#{title},author=#{author},
+    </insert>
+</mapper>

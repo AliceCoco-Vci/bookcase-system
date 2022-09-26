@@ -18,7 +18,6 @@ public class UserController {
 
         User user = userService.findUserByName(username);
         if (user.getPassword().equals(password)){
-        //if(username.equals("AliceCoco")&&password.equals("123456")){
             return new Result("success", "成功!");
         } else{
             return new Result("error", "失败!");
