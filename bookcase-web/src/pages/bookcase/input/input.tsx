@@ -80,24 +80,14 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
                     <Input />
                 </Form.Item>
                 <Form.Item
-                    name="date"
-                    label="购买日期-收货日期"
+                    name="startday"
+                    label="购买日期"
                 >
-                    <DatePicker.RangePicker
-                        ranges={{ Today: [moment(), moment()], }}
-                        defaultValue={[moment(), moment()]}
-                        showTime
-                        format="YYYY/MM/DD HH:mm:ss"
-                        onChange={onChange}
-                        disabled={[false, delivery]}
-                    />
-                    <Switch
-                        size="small"
-                        checkedChildren={<CheckOutlined />}
-                        unCheckedChildren={<CloseOutlined />}
-                        style={{ marginLeft: '20px' }}
-                        onClick={deliverySwitch}
-                    />
+                    <DatePicker 
+                    defaultValue={moment()}
+                    showTime
+                    format="YYYY/MM/DD HH:mm:ss"
+                    style={{ width: '100%' }}/>
                 </Form.Item>
                 <Form.Item
                     name="price"
@@ -115,12 +105,12 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
                         }
                     />
                 </Form.Item>
-                <Form.Item name="way" label="购买方式">
+                <Form.Item name="purchaseway" label="购买方式">
                     <Input />
                 </Form.Item>
 
                 <Form.Item
-                    name="intro"
+                    name="info"
                     label="备注"
                 >
                     <Input.TextArea showCount maxLength={100} />

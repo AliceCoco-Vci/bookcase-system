@@ -1,7 +1,11 @@
 package com.alicecoco.bookcaseserver.mapper;
 
-import com.alicecoco.bookcaseserver.entity.Book;
+import com.alicecoco.bookcaseserver.bean.Book;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
+@Repository
+@Mapper
 public interface BookMapper {
-    int inputnewbook(Book book);
+    int inputNewBook(Book book);
 }

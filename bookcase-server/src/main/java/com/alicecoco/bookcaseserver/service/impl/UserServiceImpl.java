@@ -2,7 +2,7 @@ package com.alicecoco.bookcaseserver.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.alicecoco.bookcaseserver.entity.User;
+import com.alicecoco.bookcaseserver.bean.User;
 import com.alicecoco.bookcaseserver.mapper.UserMapper;
 import com.alicecoco.bookcaseserver.service.IUserService;
 

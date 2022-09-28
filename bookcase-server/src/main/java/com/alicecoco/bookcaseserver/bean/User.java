@@ -1,4 +1,4 @@
-package com.alicecoco.bookcaseserver.entity;
+package com.alicecoco.bookcaseserver.bean;
 
 public class User {
     private int id;

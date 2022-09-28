@@ -1,4 +1,4 @@
-package com.alicecoco.bookcaseserver.entity;
+package com.alicecoco.bookcaseserver.bean;
 
 public class Result {
     private String status;

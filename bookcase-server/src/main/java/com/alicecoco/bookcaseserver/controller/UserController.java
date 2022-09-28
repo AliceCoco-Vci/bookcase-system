@@ -2,8 +2,8 @@ package com.alicecoco.bookcaseserver.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.alicecoco.bookcaseserver.entity.Result;
-import com.alicecoco.bookcaseserver.entity.User;
+import com.alicecoco.bookcaseserver.bean.Result;
+import com.alicecoco.bookcaseserver.bean.User;
 import com.alicecoco.bookcaseserver.service.impl.UserServiceImpl;
 
 @RestController

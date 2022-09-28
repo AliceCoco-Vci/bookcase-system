@@ -1,8 +1,8 @@
 package com.alicecoco.bookcaseserver.service;
 
-import com.alicecoco.bookcaseserver.domain.dto.BookInputReq;
-import com.alicecoco.bookcaseserver.entity.Result;
+import com.alicecoco.bookcaseserver.bean.Result;
+import com.alicecoco.bookcaseserver.bean.Book;
 
 public interface IBookService {
-    public Result inputnewbook(BookInputReq dto);
+    public Result inputNewBook(Book book);
 }

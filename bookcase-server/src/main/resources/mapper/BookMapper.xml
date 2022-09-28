@@ -2,8 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.alicecoco.bookcaseserver.mapper.BookMapper">
-    <resultMap id="result" type="com.alicecoco.bookcaseserver.entity.Book">
+    <resultMap id="result" type="com.alicecoco.bookcaseserver.bean.Book">
         <id column="id" property="id" />
         <result property="title" column="title"/>
         <result property="author" column="author"/>
@@ -14,7 +15,8 @@
         <result property="info" column="info"/>
     </resultMap>
 
-    <insert id="inputnewbook" parameterType="org.sang.bean.Category">
-        INSERT INTO book SET title=#{title},author=#{author},
+    <insert id="inputNewBook" keyProperty="id" useGeneratedKeys="true" parameterType="com.alicecoco.bookcaseserver.bean.Book">
+        INSERT INTO `book`(title,author,startday,price,press,purchaseway,info) values (
+            #{title}, #{author}, #{startday}, #{price}, #{press}, #{purchaseway}, #{info})
     </insert>
 </mapper>

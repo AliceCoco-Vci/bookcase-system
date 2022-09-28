@@ -18,4 +18,5 @@ node v16.16.0 (npm v8.11.0)
 `Link to={{pathname: 'control/new',query: { domainSign: 10, channel: 1 },}}`
 `history.push({pathname: '/',query: { redirect: locationpathname },});`
 #### TO DO
-1、页面加载时出现加载动画，以减少突兀
+1、页面加载时出现加载动画，以减少突兀   
+2、request.ts整理一下，统一代码

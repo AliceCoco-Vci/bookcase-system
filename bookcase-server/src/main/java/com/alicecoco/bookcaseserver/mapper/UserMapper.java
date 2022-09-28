@@ -1,6 +1,6 @@
 package com.alicecoco.bookcaseserver.mapper;
 
-import com.alicecoco.bookcaseserver.entity.User;
+import com.alicecoco.bookcaseserver.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
