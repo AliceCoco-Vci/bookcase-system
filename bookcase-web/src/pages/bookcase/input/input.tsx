@@ -9,8 +9,12 @@ import styles from './styles.less'
 
 interface Values {
     title: string;
-    description: string;
-    modifier: string;
+    author: string;
+    startday: string;
+    price: number;
+    press: string;
+    purchaseway: string;
+    info: string;
 }
 
 interface CollectionCreateFormProps {
@@ -18,15 +22,6 @@ interface CollectionCreateFormProps {
     onCreate: (values: Values) => void;
     onCancel: () => void;
 }
-
-const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
-    if (dates) {
-        console.log('From: ', dates[0], ', to: ', dates[1]);
-        console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
-    } else {
-        console.log('Clear');
-    }
-};
 
 const options = [
     { value: '海棠' },
@@ -40,10 +35,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
     onCancel,
 }) => {
     const [form] = Form.useForm();
-    const [delivery, setDelivery] = useState(true);
-    const deliverySwitch = () => {
-        setDelivery(!delivery)
-    }
+
     return (
         <Modal
             visible={visible}
@@ -83,11 +75,11 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
                     name="startday"
                     label="购买日期"
                 >
-                    <DatePicker 
-                    defaultValue={moment()}
-                    showTime
-                    format="YYYY/MM/DD HH:mm:ss"
-                    style={{ width: '100%' }}/>
+                    <DatePicker
+                        defaultValue={moment()}
+                        showTime
+                        format="YYYY-MM-DD HH:mm"
+                        style={{ width: '100%' }} />
                 </Form.Item>
                 <Form.Item
                     name="price"
@@ -120,16 +112,19 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
     );
 };
 
-const InputPage = () => {
+const InputPage = (API: any) => {
     const [visible, setVisible] = useState(false);
 
-    const onCreate = (values: string[]) => {
-        API.BOOK_INPUT({ ...values }).then(resp => {
-            if (resp.status == 'success') {  
-                    message.info('录入成功!');
-                    setVisible(false);           
+    const onCreate = (values: Values) => {
+        API.BOOK_INPUT({
+            ...values,
+            startday: moment(values.startday).set('second', 0).set('millisecond', 0).valueOf(),
+        }).then(resp => {
+            if (resp.status == 'success') {
+                message.info('录入成功!');
+                setVisible(false);
             } else {
-                message.error('2网络错误QAQ请稍后再试~');
+                message.error('网络错误QAQ请稍后再试~');
             }
         }, resp => {
             message.error('找不到服务器QAQ!');

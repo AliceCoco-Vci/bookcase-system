@@ -1,15 +1,28 @@
+<!--
+ * @Author: Dihan Li lidihan@hyperchain.cn
+ * @Date: 2022-08-26 10:20:27
+ * @LastEditors: Dihan Li lidihan@hyperchain.cn
+ * @LastEditTime: 2022-09-29 16:43:09
+ * @FilePath: /bookcase-web/README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # bookcase-web
-书籍管理系统的前端
+书籍管理系统的前端   
 
-react+ts+umi 
+react+ts+umi   
 
-nvm use 16.16.0
-node v16.16.0 (npm v8.11.0)
+nvm use 16.16.0   
+
+node v16.16.0 (npm v8.11.0)   
+
 
 #### 开发中
-1、登录`/login`
-2、首页（咨询页）`/home`
-3、书籍管理页`/bookcase`
+1、登录`/login`   
+
+2、首页（资讯页）`/home`   
+
+3、书籍管理页`/bookcase`   
+
 
 #### Issues
 1、layouts部分在使用history跳转页面时不会刷新，导致在不该存在的页面显示，该存在的页面不显示
