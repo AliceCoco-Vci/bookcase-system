@@ -1,5 +1,6 @@
 package com.alicecoco.bookcaseserver.controller;
 
+import com.alicecoco.bookcaseserver.common.BaseDto;
 import com.alicecoco.bookcaseserver.service.impl.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class BookController {
     private BookServiceImpl bookService;
 
     @PostMapping("/book_input")
-    public Result InputNewBook(@Valid @RequestBody Book book) {
-        return bookService.inputNewBook(book);
+    public Result InputNewBook(@Valid @RequestBody BaseDto<Book> dto) {
+        return bookService.inputNewBook(dto);
     }
 }
