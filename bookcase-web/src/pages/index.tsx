@@ -1,9 +1,18 @@
+/*
+ * @Author: Dihan Li lidihan@hyperchain.cn
+ * @Date: 2022-08-19 09:41:27
+ * @LastEditors: Dihan Li lidihan@hyperchain.cn
+ * @LastEditTime: 2022-09-30 15:51:45
+ * @FilePath: /bookcase-web/src/pages/index.tsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { Button, Form, Input, message } from 'antd';
 import { useEffect, useState } from 'react';
 import styles from './styles.less';
 import { history } from 'umi';
 import { postRequest } from '../utils/request'
 import { putRequest } from '../utils/request'
+import { setToken } from '@/utils/token';
 
 export default function HomePage() {
   const [submitting, setSubmitting] = useState(false);
@@ -17,9 +26,10 @@ export default function HomePage() {
     postRequest('/login', parmas).then(resp => {
       if (resp.status == 200) {
         var json = resp.data;
+        setToken(json.token);
         if (json.status == 'success') {
           history.replace("/home")
-          window.location.reload()
+          //window.location.reload()
         } else {
           message.error('用户名或密码错误!');
         }

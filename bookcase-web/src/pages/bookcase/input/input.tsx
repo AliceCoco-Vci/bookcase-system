@@ -1,6 +1,4 @@
 import { Button, Form, Input, Modal, DatePicker, Switch, InputNumber, AutoComplete, message } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
-import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import moment from 'moment';
 import { history } from 'umi';
@@ -72,7 +70,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
                     <Input />
                 </Form.Item>
                 <Form.Item
-                    name="startday"
+                    name="startDay"
                     label="购买日期"
                 >
                     <DatePicker
@@ -97,7 +95,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
                         }
                     />
                 </Form.Item>
-                <Form.Item name="purchaseway" label="购买方式">
+                <Form.Item name="purchaseWay" label="购买方式">
                     <Input />
                 </Form.Item>
 
@@ -112,7 +110,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
     );
 };
 
-const InputPage = (API: any) => {
+const InputPage = () => {
     const [visible, setVisible] = useState(false);
 
     const onCreate = (values: Values) => {

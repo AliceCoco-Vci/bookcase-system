@@ -4,6 +4,9 @@ import Axios from 'axios';
 import { message } from 'antd';
 import { v4 as uuid } from 'uuid';
 import apiList from '@/api';
+import { getToken } from '@/utils/token';
+import LoginConfirm from '@/utils/login-confirm';
+
 
 // 获取api.ts里的配置
 function getRequestParams(value: any) {
@@ -36,7 +39,9 @@ function generateAPI(apiList: any) {
 
     Axios.interceptors.request.use(
       (config) => {
-        //TODO 可以处理token
+        const token = getToken();
+        // eslint-disable-next-line no-param-reassign
+        token && (config.headers!.BOOKCASE_ACCESS_TOKEN = token);
         return config;
       },
       (error) => {
@@ -61,7 +66,7 @@ function generateAPI(apiList: any) {
           },
         });
 
-        if (data.status=="success") {
+        if (data.status == "success") {
           return data;
         } else {
           showError && message.error(data?.status || '网络异常请稍后处理～');

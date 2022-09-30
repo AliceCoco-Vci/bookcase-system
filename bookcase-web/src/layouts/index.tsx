@@ -21,6 +21,7 @@ import type { MenuProps } from 'antd';
 import { Layout, Menu, Divider, Dropdown, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
 import styles from './index.less'
+import { removeToken } from '@/utils/token';
 
 const { Header, Sider, Content } = Layout;
 type MenuItem = Required<MenuProps>['items'][number];
@@ -119,7 +120,8 @@ const siderItems: MenuItem[] = [
   // ]),
 ];
 
-const loginout = () => {
+const logout = () => {
+  removeToken();
   history.replace("/")
   window.location.reload()
 };
@@ -137,7 +139,7 @@ const AvatarMenu = () => {
         {
           key: 'logout',
           icon: <LogoutOutlined />,
-          label: (<div onClick={loginout}>退出</div>)
+          label: (<div onClick={logout}>退出</div>)
         }
       ]}
     />
