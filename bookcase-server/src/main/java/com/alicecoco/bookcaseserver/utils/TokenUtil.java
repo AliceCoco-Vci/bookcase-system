@@ -9,12 +9,15 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.alicecoco.bookcaseserver.bean.User;
+import lombok.Data;
 
 import java.util.Date;
 
 public class TokenUtil {
     private static final long EXPIRE_TIME= 30*60*100000;//token到期时间,1000=1s
     private static final String TOKEN_SECRET="dream2022bookcase";  //密钥盐
+
+    private static String username;
 
     /**
      * 创建一个token
@@ -49,6 +52,7 @@ public class TokenUtil {
             DecodedJWT decodedJWT=jwtVerifier.verify(token);
             System.out.println("认证通过：");
             System.out.println("username: " + TokenUtil.getUsername(token));
+            username=TokenUtil.getUsername(token);
 
             System.out.println("过期时间：    " + decodedJWT.getExpiresAt());
         } catch (IllegalArgumentException |JWTVerificationException e) {
@@ -70,7 +74,10 @@ public class TokenUtil {
         {
             return null;
         }
-
-
     }
+
+    public static String getUsername(){
+        return username;
+    }
+
 }

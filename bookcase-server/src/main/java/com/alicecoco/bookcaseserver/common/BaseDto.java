@@ -1,5 +1,6 @@
 package com.alicecoco.bookcaseserver.common;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -13,8 +14,9 @@ import java.time.LocalDateTime;
 @Data
 public class BaseDto<T> implements Serializable {
 
-    @ApiModelProperty(value = "时间戳(ms)", required = true, example = "1658310338911")
-    @Length(min = 13, max = 13, message = "固定长度13位")
+    //@ApiModelProperty(value = "时间戳(ms)", required = true, example = "1658310338911")
+    //@Length(min = 13, max = 13, message = "固定长度13位")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime timeStamp;
 
     @ApiModelProperty(value = "请求流水号", required = true, example = "9fd27ed7ead44fed82bc273ee9f3a072")

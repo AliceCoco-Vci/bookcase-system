@@ -45,8 +45,8 @@ public class Book {
     @ApiModelProperty(value = "备注")
     private String info;
 
-    @ApiModelProperty(value = "所属用户id")
-    private Long uid;
+    @ApiModelProperty(value = "所属用户")
+    private String username;
 
     @ApiModelProperty(value = "编辑时间")
     private LocalDateTime editTime;

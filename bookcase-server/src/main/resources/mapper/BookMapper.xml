@@ -8,15 +8,15 @@
         <id column="id" property="id" />
         <result property="title" column="title"/>
         <result property="author" column="author"/>
-        <result property="startday" column="startday"/>
+        <result property="startDay" column="startDay"/>
         <result property="price" column="price"/>
         <result property="press" column="press"/>
-        <result property="purchaseway" column="purchaseway"/>
+        <result property="purchaseWay" column="purchaseWay"/>
         <result property="info" column="info"/>
     </resultMap>
 
     <insert id="inputNewBook" keyProperty="id" useGeneratedKeys="true" parameterType="com.alicecoco.bookcaseserver.bean.Book">
-        INSERT INTO `book`(title,author,startday,price,press,purchaseway,info) values (
-            #{title}, #{author}, #{startday}, #{price}, #{press}, #{purchaseway}, #{info})
+        INSERT INTO `book`(title,author,startDay,price,press,purchaseWay,info,username,editTime) values (
+            #{title}, #{author}, #{startDay}, #{price}, #{press}, #{purchaseWay}, #{info},#{username},#{editTime})
     </insert>
 </mapper>

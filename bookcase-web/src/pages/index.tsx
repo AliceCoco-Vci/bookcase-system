@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-08-19 09:41:27
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-09-30 15:51:45
+ * @LastEditTime: 2022-10-08 15:54:08
  * @FilePath: /bookcase-web/src/pages/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,7 +12,8 @@ import styles from './styles.less';
 import { history } from 'umi';
 import { postRequest } from '../utils/request'
 import { putRequest } from '../utils/request'
-import { setToken } from '@/utils/token';
+import { getToken, setToken } from '@/utils/token';
+import { WindowsFilled } from '@ant-design/icons';
 
 export default function HomePage() {
   const [submitting, setSubmitting] = useState(false);
@@ -28,8 +29,8 @@ export default function HomePage() {
         var json = resp.data;
         setToken(json.token);
         if (json.status == 'success') {
-          history.replace("/home")
-          //window.location.reload()
+          history.push("/home")
+          window.location.reload()
         } else {
           message.error('用户名或密码错误!');
         }

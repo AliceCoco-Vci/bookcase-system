@@ -8,10 +8,10 @@ import styles from './styles.less'
 interface Values {
     title: string;
     author: string;
-    startday: string;
+    startDay: string;
     price: number;
     press: string;
-    purchaseway: string;
+    purchaseWay: string;
     info: string;
 }
 
@@ -116,7 +116,7 @@ const InputPage = () => {
     const onCreate = (values: Values) => {
         API.BOOK_INPUT({
             ...values,
-            startday: moment(values.startday).set('second', 0).set('millisecond', 0).valueOf(),
+            startDay: moment(values.startDay).set('second', 0).set('millisecond', 0).valueOf(),
         }).then(resp => {
             if (resp.status == 'success') {
                 message.info('录入成功!');

@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-08-26 10:20:27
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-09-30 16:29:23
+ * @LastEditTime: 2022-10-08 16:48:37
  * @FilePath: /bookcase-web/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -33,6 +33,13 @@ node v16.16.0 (npm v8.11.0)
 
 2、只要token存在即可登录，其值没有验证
 
+3、“登录过期，请重新登录”提示框点击立即登录，layout不刷新
+
 #### TO DO
 1、页面加载时出现加载动画，以减少突兀   
 2、request.ts整理一下，统一代码
+3、登陆后进入/login页面直接跳转到/home(
+    更改{ exact: true, path: '/', redirect: '/login' },为
+    { exact: true, path: '/', redirect: '/home' },后顶部导航栏不显示
+    即，仍为路由不刷新问题，与Issues1同
+)
