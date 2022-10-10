@@ -9,6 +9,7 @@ public class Result {
     private String status;
     private String msg;
 
+    private String username;
     private String token;
 
     public Result(String status, String msg) {
@@ -19,6 +20,13 @@ public class Result {
     public Result(String status, String msg, String token) {
         this.status = status;
         this.msg = msg;
+        this.token = token;
+    }
+
+    public Result(String status, String msg, String username, String token) {
+        this.status = status;
+        this.msg = msg;
+        this.username=username;
         this.token = token;
     }
 

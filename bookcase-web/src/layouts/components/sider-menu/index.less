@@ -1,0 +1,112 @@
+.navs {
+    .head {
+      //min-width: 100vh;
+      display: flex;
+      align-items: center;
+  
+      .logo {
+        width: 200px;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+      }
+  
+      .divider {
+        margin-right: 15px;
+        margin-left: 31px;
+        font-size: 27px;
+        background-color: rgb(208, 208, 208);
+      }
+  
+      .headMenu {
+        width: 100%;
+        margin-right: 5rem;
+        line-height: 66px;
+        background-color: rgb(255, 255, 255);
+        border-bottom: 0;
+  
+        .menu_titlebox {
+          color: black;
+          border-bottom: 0;
+        }
+      }
+  
+      .head_right {
+        margin-right: 4rem;
+  
+        .avater {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          cursor: pointer;
+  
+          .usrname {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  
+  .menu {
+    min-width: 140px;
+    color: #888;
+  
+    :global {
+      .ant-menu-item:hover {
+        color: #292929;
+      }
+    }
+  }
+  
+  @import '~antd/dist/antd.css';
+  
+  #root,
+  body,
+  html {
+    height: 100%;
+  }
+  
+  .trigger {
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .trigger:hover {
+    color: #1890ff;
+  }
+  
+  .logo2 {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  :global {
+  
+    .site-layout {
+      background: #fff;
+    }
+  
+    .site-layout-background {
+      background: #fff;
+    }
+  
+    .ant-layout-header {
+      background: #fff;
+    }
+  
+    .ant-layout-content {
+      background: #fff;
+    }
+  
+    .ant-dropdown-trigger:hover{
+      color: #1890ff;
+    }
+  
+  }

@@ -21,7 +21,7 @@ public class UserController {
         User user = userService.findUserByName(username);
         if (user.getPassword().equals(password)){
             String token= TokenUtil.sign(user);
-            return new Result("success", "成功!",token);
+            return new Result("success", "成功!",username,token);
         } else{
             return new Result("error", "失败!");
         }
