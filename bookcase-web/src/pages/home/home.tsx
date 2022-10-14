@@ -1,6 +1,7 @@
 import React from 'react';
 import TweenOne from 'rc-tween-one';
 import SvgDrawPlugin from 'rc-tween-one/lib/plugin/SvgDrawPlugin';
+import styles from './index.less';
 TweenOne.plugins.push(SvgDrawPlugin);
 
 let delay = 0;
@@ -53,7 +54,7 @@ const animate = {
 
 const HomePage=()=> {
   return (
-    <div style={{width:'100vh',height:'92vh',marginLeft:'30rem'}}>
+    <div className={styles.container}>
       <svg viewBox="0 0 790 542" width="100%" height="100%">
         <defs>
           <linearGradient x1="90.6674592%" y1="40.4771205%" x2="17.4068727%" y2="55.2232143%" id="linearGradient-1">

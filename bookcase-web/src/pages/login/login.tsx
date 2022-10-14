@@ -11,7 +11,7 @@ import { useState } from 'react';
 import styles from './index.less';
 import { history } from 'umi';
 import { postRequest } from '@/utils/request'
-import { setToken, setUsername } from '@/utils/token';
+import { setMenu, setToken, setUsername} from '@/utils/localstorage';
 
 export default function HomePage() {
   const [submitting, setSubmitting] = useState(false);
@@ -27,6 +27,7 @@ export default function HomePage() {
         var json = resp.data;
         setToken(json.token);
         setUsername(json.username);
+        setMenu(json.menu);
         if (json.status == 'success') {
           history.push("/home")
           //window.location.reload()

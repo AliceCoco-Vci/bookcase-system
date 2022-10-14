@@ -124,8 +124,6 @@ const InputPage = () => {
             } else {
                 message.error('网络错误QAQ请稍后再试~');
             }
-        }, resp => {
-            message.error('找不到服务器QAQ!');
         });
 
     };

@@ -15,3 +15,8 @@ export const key2 = 'username';
 export const getUsername = () => localStorage.getItem(key2);
 export const setUsername = (username: string) => localStorage.setItem(key2, username);
 export const removeUsername = () => localStorage.removeItem(key2);
+
+export const menu_key = 'HeaderMenuList';
+export const getMenu = () => localStorage.getItem(menu_key);
+export const setMenu= (menus:any) => localStorage.setItem(menu_key,menus);
+export const removeMenu = () => localStorage.removeItem(menu_key);

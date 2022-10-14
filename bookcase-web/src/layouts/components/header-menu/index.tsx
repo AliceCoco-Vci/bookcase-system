@@ -13,7 +13,7 @@ import {
 import type { MenuProps } from 'antd';
 import { Menu, Divider, Dropdown } from 'antd';
 import styles from './index.less'
-import { getUsername, removeToken, removeUsername } from '@/utils/token';
+import { getUsername, removeMenu, removeToken, removeUsername} from '@/utils/localstorage';
 
 const headerItems: MenuProps['items'] = [
     {
@@ -75,6 +75,7 @@ const headerItems: MenuProps['items'] = [
 const logout = () => {
     removeToken();
     removeUsername();
+    removeMenu();
     history.replace("/")
 };
 

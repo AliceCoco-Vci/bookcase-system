@@ -4,7 +4,7 @@ import Axios from 'axios';
 import { message } from 'antd';
 import { v4 as uuid } from 'uuid';
 import apiList from '@/api';
-import { getToken, removeToken } from '@/utils/token';
+import { getToken, removeToken } from '@/utils/localstorage';
 import LoginConfirm from '@/utils/login-confirm';
 
 // 获取api.ts里的配置
