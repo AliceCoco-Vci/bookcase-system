@@ -13,7 +13,7 @@ import {
 import type { MenuProps } from 'antd';
 import { Menu, Divider, Dropdown } from 'antd';
 import styles from './index.less'
-import { getUsername, removeMenu, removeToken, removeUsername} from '@/utils/localstorage';
+import { getToken, getUsername, removeMenu, removeToken, removeUsername } from '@/utils/localstorage';
 
 const headerItems: MenuProps['items'] = [
     {
@@ -128,12 +128,17 @@ export default function Layout() {
                     mode="horizontal"
                     items={headerItems} />
                 <div className={styles.head_right} >
-                    <Dropdown overlay={<AvatarMenu />} trigger={['hover']} >
-                        <div className={styles.avater}>
-                            <div className={styles.usrname}>{getUsername()}</div>
-                            <DownOutlined />
+                    {getToken()
+                        ? <Dropdown overlay={<AvatarMenu />} trigger={['hover']} >
+                            <div className={styles.avater}>
+                                <div className={styles.usrname}>{getUsername()}</div>
+                                <DownOutlined />
+                            </div>
+                        </Dropdown>
+                        : <div className={styles.loginlink}>
+                            <Link to='/login'>登录</Link>
                         </div>
-                    </Dropdown>
+                    }
                 </div>
             </div>
             <Outlet />
