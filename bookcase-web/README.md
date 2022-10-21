@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-08-26 10:20:27
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-10-11 11:25:25
+ * @LastEditTime: 2022-10-21 11:16:26
  * @FilePath: /bookcase-web/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -12,6 +12,10 @@
 react+ts+umi   
 nvm use 16.16.0   
 node v16.16.0 (npm v8.11.0)   
+>不知道为什么换电脑后使用npm install会报错   
+>可以使用cnpm安装   
+>npm install -g cnpm --registry=http://r.cnpmjs.org
+>cnpm start
 
 #### 开发中
 1、登录`/login`   
@@ -35,6 +39,10 @@ node v16.16.0 (npm v8.11.0)
 
 4、（已解决）antd设置global后全局生效，无法单独设置   
 解决方法：将global写在antd组件的外层div样式中即可   
+
+5、（已解决）未登录点击Bookcase跳转到login页点击返回，无法返回home，一直是login
+解决方法：将跳转方法由history.push改为history.replace即可
+
 #### TO DO
 1、页面加载时出现加载动画，以减少突兀   
 2、request.ts整理一下，统一代码   
