@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-08-26 10:20:27
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-10-21 11:16:26
+ * @LastEditTime: 2022-10-21 14:02:10
  * @FilePath: /bookcase-web/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -12,10 +12,12 @@
 react+ts+umi   
 nvm use 16.16.0   
 node v16.16.0 (npm v8.11.0)   
->不知道为什么换电脑后使用npm install会报错   
+>不知道为什么删掉node_modules重新使用npm install会报错   
 >可以使用cnpm安装   
 >npm install -g cnpm --registry=http://r.cnpmjs.org
 >cnpm start
+>（可能和package-lock.json有关，cnpm安装好像不使用package-lock.json）   
+
 
 #### 开发中
 1、登录`/login`   

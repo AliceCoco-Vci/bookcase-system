@@ -13,9 +13,12 @@
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.22.7",
     "axios": "^0.27.2",
+    "lodash.range": "^3.2.0",
     "rc-tween-one": "^3.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-motion": "^0.5.2",
+    "react-simple-animate": "^3.5.2",
     "umi": "^4.0.13",
     "uuid": "^9.0.0"
   },

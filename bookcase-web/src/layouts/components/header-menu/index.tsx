@@ -118,7 +118,7 @@ export default function Layout() {
         <div className={styles.navs} >
             <div className={styles.head}>
                 <div className={styles.logo}>
-                    <CodeSandboxOutlined />ALICECOCO
+                    <CodeSandboxOutlined />COCO
                 </div>
                 <Divider type="vertical" className={styles.divider}></Divider>
                 <Menu
