@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-10-10 16:56:32
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-10-10 16:59:26
+ * @LastEditTime: 2022-10-27 09:58:43
  * @FilePath: /bookcase-web/src/pages/login/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,6 +12,7 @@ import styles from './index.less';
 import { history } from 'umi';
 import { postRequest } from '@/utils/request'
 import { setMenu, setToken, setUsername} from '@/utils/localstorage';
+import FloatWord from '@/components/FloatWord/FloatWord';
 
 export default function HomePage() {
   const [submitting, setSubmitting] = useState(false);
@@ -44,6 +45,7 @@ export default function HomePage() {
 
   return (
     <div className={styles.container}>
+      <div><FloatWord/></div>
       <div className={styles.login_container}>
         <Form
           name="basic"

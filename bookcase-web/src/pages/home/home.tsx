@@ -3,8 +3,14 @@ import TweenOne from 'rc-tween-one';
 import SvgDrawPlugin from 'rc-tween-one/lib/plugin/SvgDrawPlugin';
 import styles from './index.less';
 import VividButton from '@/components/VividButton/VividButton';
-import Demo from '@/components/test/test.jsx'
-import Demo2 from '@/components/test/test2'
+import FloatWord from '@/components/FloatWord/FloatWord';
+import DraggableBalls from '@/components/test/Demo_DraggableBalls'
+import ReactPathMenu from '@/components/test/Demo_ReactPathMenu'
+import Demo2 from '@/components/test/Demo2'
+import Demo3 from '@/components/test/Demo3'
+import Demo4 from '@/components/test/Demo4'
+import Click from '@/components/test/Demo_Click'
+import Card from '@/components/Card/Card'
 TweenOne.plugins.push(SvgDrawPlugin);
 
 let delay = 0;
@@ -58,7 +64,7 @@ const animate = {
 const HomePage = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.test}><Demo2/></div>
+      <div className={styles.test}><Card/></div>
       <div className={styles.svg}>
         <svg viewBox="0 0 790 542" width="100%" height="100%">
           <defs>

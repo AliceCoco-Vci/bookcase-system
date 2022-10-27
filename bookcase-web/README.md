@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-08-26 10:20:27
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-10-21 14:02:10
+ * @LastEditTime: 2022-10-27 15:33:01
  * @FilePath: /bookcase-web/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -44,6 +44,9 @@ node v16.16.0 (npm v8.11.0)
 
 5、（已解决）未登录点击Bookcase跳转到login页点击返回，无法返回home，一直是login
 解决方法：将跳转方法由history.push改为history.replace即可
+
+6、(已解决)双击/home页面，右上角登录文字会被选中   
+解决方法：莫名其妙自己好了
 
 #### TO DO
 1、页面加载时出现加载动画，以减少突兀   

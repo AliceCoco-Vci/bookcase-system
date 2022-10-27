@@ -2,16 +2,33 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-10-21 14:26:03
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-10-21 17:10:31
+ * @LastEditTime: 2022-10-27 13:38:16
  * @FilePath: /bookcase-web/src/components/VividButton/VividButton.tsx
- * @Description: 无法显示动画效果，推测为react-motion未生效
+ * @Description: 还没理解子按钮收起的方向如何设置，此组件参考https://github.com/xitu/gold-miner/blob/master/TODO1/a-gentle-introduction-to-react-motion.md
  */
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Motion, StaggeredMotion, spring } from 'react-motion';
 import range from 'lodash.range';
-import './index.less'
-import {HeatMapOutlined} from '@ant-design/icons'
+import styles from './index.less'
+import {
+    SlackCircleFilled,
+    EditOutlined, DiffOutlined,
+    AlignCenterOutlined,
+    RedoOutlined,
+    UnorderedListOutlined,
+    FundOutlined,
+    SlidersOutlined,
+} from '@ant-design/icons'
+
+interface Styles {
+    left: number,
+    height: number,
+    top: number,
+    rotate: number,
+    scale: number,
+    width: number,
+}
 
 //Constants 
 
@@ -21,14 +38,14 @@ const CHILD_BUTTON_DIAM = 48;
 // The number of child buttons that fly out from the main button
 const NUM_CHILDREN = 5;
 // Hard code the position values of the mainButton
-const M_X = 490;
-const M_Y = 450;
+const M_X = 200;
+const M_Y = 200;
 
 //should be between 0 and 0.5 (its maximum value is difference between scale in finalChildButtonStyles a
 // nd initialChildButtonStyles)
 const OFFSET = 0.05;
-
-const SPRING_CONFIG = { stiffness: 400, damping: 28 };
+//stiffness数值越大，展开颤动越厉害
+const SPRING_CONFIG = { stiffness: 900, damping: 28 };
 
 // How far away from the main button does the child buttons go
 const FLY_OUT_RADIUS = 130,
@@ -36,9 +53,28 @@ const FLY_OUT_RADIUS = 130,
     FAN_ANGLE = (NUM_CHILDREN - 1) * SEPARATION_ANGLE, //degrees
     BASE_ANGLE = ((180 - FAN_ANGLE) / 2); // degrees
 
-// Names of icons for each button retreived from fontAwesome, we'll add a little extra just in case 
-// the NUM_CHILDREN is changed to a bigger value
-let childButtonIcons = ['pencil', 'at', 'camera', 'bell', 'comment', 'bolt', 'ban', 'code'];
+interface colornum{
+    index:number;
+}
+
+const ChildButtonIcons = (props: colornum) => {
+    const iconObj = {
+        0: <EditOutlined />,
+        1: <DiffOutlined />,
+        2: <AlignCenterOutlined />,
+        3: <RedoOutlined />,
+        4: <UnorderedListOutlined />,
+        5: <FundOutlined />,
+        6: <SlidersOutlined />,
+    }
+    type colorType = keyof typeof iconObj
+    return iconObj[props.index as colorType]
+
+}
+const childButtonColors = [
+    '#EF767A', '#456990', '#efed76', '#49DCB1', '#EEB868', '#EF767A', '#456990',
+    '#49BEAA', '#49DCB1', '#EEB868', '#EF767A',
+];
 
 // Utility functions
 
@@ -55,9 +91,7 @@ function finalChildDeltaPositions(index: number) {
 }
 
 const VividButton = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [childButtons, setChildButtons] = useState([]);
-
+    const [isOpen, setIsOpen] = useState(true);
 
     const mainButtonStyles = () => {
         return {
@@ -125,7 +159,8 @@ const VividButton = () => {
 
     const RenderChildButtons = () => {
         const targetButtonStylesInitObject = range(NUM_CHILDREN).map(i => {
-            return isOpen ? finalChildButtonStylesInit(i) : initialChildButtonStylesInit();
+            console.log('isOpen', isOpen)
+            return !isOpen ? finalChildButtonStylesInit(i) : initialChildButtonStylesInit();
         });
 
         //StaggeredMotion now takes an Array of object
@@ -168,20 +203,20 @@ const VividButton = () => {
                 styles={calculateStylesForNextFrame}>
                 {interpolatedStyles =>
                     <div>
-                        {interpolatedStyles.map(({ height, left, rotate, scale, top, width }, index) =>
+                        {interpolatedStyles.map(({ height, left, rotate, scale, top, width }: Styles, index: number) =>
                             <div
-                                className="child-button"
+                                className={styles.child_button}
                                 key={index}
                                 style={{
-                                    left,
-                                    height,
-                                    top,
+                                    left: left,
+                                    height: height,
+                                    top: top,
                                     transform: `rotate(${rotate}deg) scale(${scale})`,
-                                    width
+                                    width: width,
+                                    backgroundColor: childButtonColors[index]
                                 }}
                             >
-                                <i className={"fa fa-" + childButtonIcons[index] + " fa-lg"}></i>
-                                <>{console.log('interpolatedStyles',interpolatedStyles)}</>
+                                <ChildButtonIcons index={index}/>
                             </div>
                         )}
                     </div>
@@ -191,7 +226,7 @@ const VividButton = () => {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <RenderChildButtons />
             <Motion style={
                 isOpen
@@ -199,11 +234,11 @@ const VividButton = () => {
                     : { rotate: spring(-135, { stiffness: 500, damping: 30 }) }}>
                 {({ rotate }) =>
                     <div
-                        className="main-button"
+                        className={styles.main_button}
                         style={{ ...mainButtonStyles(), transform: `rotate(${rotate}deg)` }}
                         onClick={toggleMenu}>
                         {/*Using fa-close instead of fa-plus because fa-plus doesn't center properly*/}
-                        <HeatMapOutlined />
+                        <SlackCircleFilled style={{ fontSize: 60 }} />
                     </div>
                 }
             </Motion>
