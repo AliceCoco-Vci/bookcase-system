@@ -11,6 +11,8 @@ import Demo3 from '@/components/test/Demo3'
 import Demo4 from '@/components/test/Demo4'
 import Click from '@/components/test/Demo_Click'
 import Card from '@/components/Card/Card'
+import ToDoList from '@/components/test/Demo_ToDoList'
+import ToDoList2 from '@/components/test/Demo_ToDoList2/Demo_ToDoList2'
 TweenOne.plugins.push(SvgDrawPlugin);
 
 let delay = 0;
@@ -64,7 +66,8 @@ const animate = {
 const HomePage = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.test}><Card/></div>
+      <div className={styles.test}><ToDoList/></div>
+      <div className={styles.test}><ToDoList2/></div>
       <div className={styles.svg}>
         <svg viewBox="0 0 790 542" width="100%" height="100%">
           <defs>
