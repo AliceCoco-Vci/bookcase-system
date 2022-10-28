@@ -1,4 +1,6 @@
 import React from 'react';
+import { Breadcrumb } from 'antd';
+import { LineOutlined } from '@ant-design/icons'
 import TweenOne from 'rc-tween-one';
 import SvgDrawPlugin from 'rc-tween-one/lib/plugin/SvgDrawPlugin';
 import styles from './index.less';
@@ -13,6 +15,7 @@ import Click from '@/components/test/Demo_Click'
 import Card from '@/components/Card/Card'
 import ToDoList from '@/components/test/Demo_ToDoList'
 import ToDoList2 from '@/components/test/Demo_ToDoList2/Demo_ToDoList2'
+import Scatterplot from '@/components/test/Demo_Scatterplot'
 TweenOne.plugins.push(SvgDrawPlugin);
 
 let delay = 0;
@@ -66,8 +69,14 @@ const animate = {
 const HomePage = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.test}><ToDoList/></div>
-      <div className={styles.test}><ToDoList2/></div>
+      <div className={styles.BCmenu}>
+        <Breadcrumb separator={<LineOutlined style={{width:100,color:'#7eb79d'}}/>}>
+          <Breadcrumb.Item href="/home">首页</Breadcrumb.Item>
+          <Breadcrumb.Item href="">预售信息</Breadcrumb.Item>
+          <Breadcrumb.Item href="">出版社信息</Breadcrumb.Item>
+        </Breadcrumb>
+      </div>
+      {/* <div className={styles.test}><Scatterplot/></div> */}
       <div className={styles.svg}>
         <svg viewBox="0 0 790 542" width="100%" height="100%">
           <defs>
