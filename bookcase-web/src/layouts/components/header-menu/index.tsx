@@ -102,7 +102,7 @@ const AvatarMenu = () => {
 
 export default function Layout() {
     let temp = location.pathname
-    if (temp == '/') temp = '/home'
+    if (temp == '/' || temp.includes('/home')) temp = '/home'
     const [currentHeader, setcurrentHeader] = useState(temp.includes('/bookcase') ? '/bookcase' : temp)
 
     const onClick: MenuProps['onClick'] = e => {
