@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-08-26 10:20:27
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-10-28 17:25:33
+ * @LastEditTime: 2022-11-01 15:51:20
  * @FilePath: /bookcase-web/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -17,22 +17,13 @@ node v16.16.0 (npm v8.11.0)
 >npm install -g cnpm --registry=http://r.cnpmjs.org
 >cnpm start   
 
-
-#### 开发中
-1、登录`/login`   
-出版社信息板块（卡片形式）--官网、facebook、twiter、ins、微博、购买方式、购买教程   
-各出版社进度汇总（链接形式+图片形式，可在前端增删改，数据由后端返回）   
-预售信息板块（预售日程表，点击显示详情，详情页单独设计）     
-汇率查询   
-最新动态   
-
-
+#### 开发中  
+1、登录`/login`      
 2、首页（资讯页）`/home`   
-
+`/home` - 最新动态板块（展示微博、twwiter等的最新消息，栅格布局，小卡片从左往右，从上往下，左上为最新（挂一个new的标志，管理员管理时可自主添加new的标签）），汇率查询板块（暂不知道咋做）   
+`/home/预售信息` - 预售时程表，希望能有交互感，悬停显示基本预售信息，点击书名显示详情，详情页单独设计   
+`/home/出版社信息` - 出版社信息板块（modal卡片形式，包括官网、facebook、twiter、ins、微博、购买方式、购买教程等），各出版社进度汇总板块（链接形式+图片形式，可在前端增删改，数据由后端返回）   
 3、书籍管理页`/bookcase`   
-
-
-
 #### Issues
 1、（已解决）layouts部分在使用history跳转页面时不会刷新，导致在不该存在的页面显示，该存在的页面不显示   
 例如：登录后·`/home`  页面上方导航栏不出现，刷新出现，退出不消失   
@@ -52,10 +43,9 @@ node v16.16.0 (npm v8.11.0)
 解决方法：将跳转方法由history.push改为history.replace即可
 
 6、(已解决)双击/home页面，右上角登录文字会被选中   
-解决方法：莫名其妙自己好了
+解决方法：莫名其妙自己好了，可能去当时添加的某个组件有关（现已删）
 
 #### TO DO
 1、页面加载时出现加载动画，以减少突兀   
-2、request.ts整理一下，统一代码   
-3、登陆后进入/login页面直接跳转到/home   
-4、当日汇率   
+2、request.ts整理一下，统一代码     
+3、顶部导航栏改为未登录时只显示Home，即设立管理员身份，管理后台（研究一下access

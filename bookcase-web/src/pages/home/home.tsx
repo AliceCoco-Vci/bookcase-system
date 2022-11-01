@@ -4,6 +4,7 @@ import { LineOutlined } from '@ant-design/icons'
 import TweenOne from 'rc-tween-one';
 import SvgDrawPlugin from 'rc-tween-one/lib/plugin/SvgDrawPlugin';
 import styles from './index.less';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import VividButton from '@/components/VividButton/VividButton';
 import FloatWord from '@/components/FloatWord/FloatWord';
 import DraggableBalls from '@/components/test/Demo_DraggableBalls'
@@ -69,13 +70,6 @@ const animate = {
 const HomePage = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.BCmenu}>
-        <Breadcrumb separator={<LineOutlined style={{width:100,color:'#7eb79d'}}/>}>
-          <Breadcrumb.Item href="/home">首页</Breadcrumb.Item>
-          <Breadcrumb.Item href="">预售信息</Breadcrumb.Item>
-          <Breadcrumb.Item href="">出版社信息</Breadcrumb.Item>
-        </Breadcrumb>
-      </div>
       {/* <div className={styles.test}><Scatterplot/></div> */}
       <div className={styles.svg}>
         <svg viewBox="0 0 790 542" width="100%" height="100%">
