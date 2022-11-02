@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-10-10 16:56:32
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-10-27 09:58:43
+ * @LastEditTime: 2022-11-02 18:12:38
  * @FilePath: /bookcase-web/src/pages/login/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -10,8 +10,8 @@ import { Button, Form, Input, message } from 'antd';
 import { useState } from 'react';
 import styles from './index.less';
 import { history } from 'umi';
-import { postRequest } from '@/utils/request'
-import { setMenu, setToken, setUsername} from '@/utils/localstorage';
+import API from '@/utils/request'
+import { setToken, setUserInfo } from '@/utils/localstorage';
 import FloatWord from '@/components/FloatWord/FloatWord';
 
 export default function HomePage() {
@@ -23,29 +23,24 @@ export default function HomePage() {
 
   const submit = async (parmas: { name: string, passwd: string }) => {
     setSubmitting(true)
-    postRequest('/login', parmas).then(resp => {
-      if (resp.status == 200) {
-        var json = resp.data;
-        setToken(json.token);
-        setUsername(json.username);
-        setMenu(json.menu);
-        if (json.status == 'success') {
-          history.push("/home")
-          //window.location.reload()
-        } else {
-          message.error('用户名或密码错误!');
-        }
-      } else {
-        message.error('登录失败!');
+    API.Login({ ...parmas, }).then(resp => {
+      if (resp.status == "success") {
+        setToken(resp.token);
+        setUserInfo(resp.data);
+        console.log("auth",resp.data)
+        history.push("/home")
+      } else if (resp.status == "error") {
+        message.error(resp.msg);
+      } else if (resp.status == "504") {
+        message.error('找不到服务器QAQ!');
       }
-    }, resp => {
-      message.error('找不到服务器QAQ!');
     });
+    setSubmitting(false)
   };
 
   return (
     <div className={styles.container}>
-      <div><FloatWord/></div>
+      <div><FloatWord /></div>
       <div className={styles.login_container}>
         <Form
           name="basic"

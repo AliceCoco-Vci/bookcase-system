@@ -10,7 +10,7 @@ import moment from 'moment';
 import { history } from 'umi';
 import { ConfigProvider, message } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
-import { getMenu, getToken } from '@/utils/localstorage';
+import { getToken } from '@/utils/localstorage';
 import type { FcProps } from '@/type/umi';
 moment.locale('zh-cn');
 

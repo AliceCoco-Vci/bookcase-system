@@ -1,5 +1,5 @@
 import { history, Link, Outlet } from 'umi';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
 import {
     HomeOutlined,
@@ -13,7 +13,8 @@ import {
 import type { MenuProps } from 'antd';
 import { Menu, Divider, Dropdown } from 'antd';
 import styles from './index.less'
-import { getToken, getUsername, removeMenu, removeToken, removeUsername } from '@/utils/localstorage';
+import { getToken, getUserInfo, removeToken, removeUserInfo } from '@/utils/localstorage';
+import API from '@/utils/request'
 
 const headerItems: MenuProps['items'] = [
     {
@@ -35,10 +36,9 @@ const headerItems: MenuProps['items'] = [
         icon: <BookOutlined />,
     },
     {
-        label: 'None',
+        label: 'Administrator',
         key: 'SubMenu',
         icon: <SettingOutlined />,
-        disabled: true,
         children: [
             {
                 type: 'group',
@@ -74,8 +74,7 @@ const headerItems: MenuProps['items'] = [
 
 const logout = () => {
     removeToken();
-    removeUsername();
-    removeMenu();
+    removeUserInfo();
     history.replace("/")
 };
 
@@ -104,6 +103,17 @@ export default function Layout() {
     let temp = location.pathname
     if (temp == '/' || temp.includes('/home')) temp = '/home'
     const [currentHeader, setcurrentHeader] = useState(temp.includes('/bookcase') ? '/bookcase' : temp)
+    const [auth, setAuth] = useState(1)//1:未登录，仅home权限；2:不同用户，home、bookcase权限；3:管理员，所有权限
+
+    const getAuth = async () => {
+        if (getToken()) {
+            setAuth(JSON.parse(getUserInfo()).authority)
+        }
+    };
+
+    useEffect(() => {
+        getAuth();
+    }, []);
 
     const onClick: MenuProps['onClick'] = e => {
         setcurrentHeader(e.key)
@@ -126,12 +136,12 @@ export default function Layout() {
                     onClick={onClick}
                     selectedKeys={[currentHeader]}
                     mode="horizontal"
-                    items={headerItems} />
+                    items={headerItems?.slice(0, auth)} />
                 <div className={styles.head_right} >
                     {getToken()
                         ? <Dropdown overlay={<AvatarMenu />} trigger={['hover']} >
                             <div className={styles.avater}>
-                                <div className={styles.usrname}>{getUsername()}</div>
+                                <div className={styles.usrname}>{JSON.parse(getUserInfo()).username}</div>
                                 <DownOutlined />
                             </div>
                         </Dropdown>
