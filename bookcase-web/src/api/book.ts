@@ -1,6 +1,6 @@
 export default {
-    //login
-    BOOK_INPUT: {
+    //book
+    BookInput: {
       url: '/book_input',
     },
   };

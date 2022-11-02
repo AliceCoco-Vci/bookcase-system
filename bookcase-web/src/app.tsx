@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-09-30 15:59:37
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-11-01 13:44:52
+ * @LastEditTime: 2022-11-02 10:06:20
  * @FilePath: /bookcase-web/src/app.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -14,7 +14,7 @@ import { getMenu, getToken } from '@/utils/localstorage';
 import type { FcProps } from '@/type/umi';
 moment.locale('zh-cn');
 
-const whiteList = ['/home', '/home/page1','/home/page2','/login', '/']; // 允许直接访问的白名单列表
+const whiteList = ['/home', '/home/page1', '/home/page2', '/login', '/']; // 允许直接访问的白名单列表
 
 export function onRouteChange({ location }: FcProps) {
     const token = getToken();

@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-08-26 10:20:27
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-11-01 15:51:20
+ * @LastEditTime: 2022-11-02 10:08:04
  * @FilePath: /bookcase-web/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -48,4 +48,4 @@ node v16.16.0 (npm v8.11.0)
 #### TO DO
 1、页面加载时出现加载动画，以减少突兀   
 2、request.ts整理一下，统一代码     
-3、顶部导航栏改为未登录时只显示Home，即设立管理员身份，管理后台（研究一下access
+3、顶部导航栏改为未登录时只显示Home，即设立管理员身份，管理后台

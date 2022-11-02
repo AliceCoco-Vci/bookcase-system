@@ -114,7 +114,7 @@ const InputPage = () => {
     const [visible, setVisible] = useState(false);
 
     const onCreate = (values: Values) => {
-        API.BOOK_INPUT({
+        API.BookInput({
             ...values,
             startDay: moment(values.startDay).set('second', 0).set('millisecond', 0).valueOf(),
         }).then(resp => {
