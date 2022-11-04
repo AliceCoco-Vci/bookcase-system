@@ -70,7 +70,7 @@ const animate = {
 const HomePage = () => {
   return (
     <div className={styles.container}>
-      {/* <div className={styles.test}><Scatterplot/></div> */}
+      <div className={styles.test}><Card/></div>
       <div className={styles.svg}>
         <svg viewBox="0 0 790 542" width="100%" height="100%">
           <defs>

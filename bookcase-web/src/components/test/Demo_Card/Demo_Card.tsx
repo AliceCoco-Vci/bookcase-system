@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-10-27 15:42:39
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-11-04 13:39:43
+ * @LastEditTime: 2022-10-27 15:49:43
  * @FilePath: /bookcase-web/src/components/Card/Card.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -51,8 +51,8 @@ export default function App() {
 
   useGesture(
     {
-      // onDrag: ({ active, offset: [x, y] }) =>
-      //   api({ x, y, rotateX: 0, rotateY: 0, scale: active ? 1 : 1.1 }),
+      onDrag: ({ active, offset: [x, y] }) =>
+        api({ x, y, rotateX: 0, rotateY: 0, scale: active ? 1 : 1.1 }),
       onPinch: ({ offset: [d, a] }) => api({ zoom: d / 200, rotateZ: a }),
       onMove: ({ xy: [px, py], dragging }) =>
         !dragging &&
@@ -84,16 +84,11 @@ export default function App() {
           rotateY,
           rotateZ,
         }}>
-        <div className={styles.txt}>
-          <div className={styles.title}>标题</div>
-          <div className={styles.desc}>1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111222222</div>
-        </div>
-        <div className={styles.imgbox}><img className={styles.img}></img></div>
-        {/* <animated.div style={{ height:'90%',transform: wheelY.to(wheel) }}>
+        <animated.div style={{ transform: wheelY.to(wheel) }}>
           {imgs.map((img, i) => (
             <div key={i} style={{ backgroundImage: `url(${img})` }} />
           ))}
-        </animated.div> */}
+        </animated.div>
       </animated.div>
     </div>
   )

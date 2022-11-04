@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-10-10 16:56:32
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-11-02 18:12:38
+ * @LastEditTime: 2022-11-04 14:31:04
  * @FilePath: /bookcase-web/src/pages/login/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -22,20 +22,23 @@ export default function HomePage() {
   };
 
   const submit = async (parmas: { name: string, passwd: string }) => {
-    setSubmitting(true)
-    API.Login({ ...parmas, }).then(resp => {
-      if (resp.status == "success") {
-        setToken(resp.token);
-        setUserInfo(resp.data);
-        console.log("auth",resp.data)
-        history.push("/home")
-      } else if (resp.status == "error") {
-        message.error(resp.msg);
-      } else if (resp.status == "504") {
-        message.error('找不到服务器QAQ!');
-      }
-    });
-    setSubmitting(false)
+    try {
+      setSubmitting(true)
+      API.Login({ ...parmas, }).then(resp => {
+        if (resp.status == "success") {
+          setToken(resp.token);
+          setUserInfo(resp.data);
+          console.log("auth", resp.data)
+          history.push("/home")
+        } else if (resp.status == "error") {
+          message.error(resp.msg);
+        } else if (resp.status == "504") {
+          message.error('找不到服务器QAQ!');
+        }
+      });
+    } finally {
+      setSubmitting(false)
+    }
   };
 
   return (

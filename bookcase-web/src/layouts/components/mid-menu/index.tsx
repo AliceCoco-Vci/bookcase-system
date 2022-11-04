@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-11-01 11:28:48
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-11-01 13:59:16
+ * @LastEditTime: 2022-11-03 11:48:41
  * @FilePath: /bookcase-web/src/layouts/components/mid-menu/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -24,10 +24,10 @@ export default function Layout() {
             <div className={styles.container}>
                 {MidItems?.map((data: any) => (
                     <div key={data.label as string}>
-                        {location.pathname == data.url ?
-                            <a className={styles.middileMenu_B} href={data.url}>{data.label}</a>
-                            : <a className={styles.middileMenu} href={data.url}>{data.label}</a>
-                        }
+                        <a className={location.pathname == data.url 
+                            ? styles.middileMenu_B 
+                            : styles.middileMenu} 
+                            href={data.url}>{data.label}</a>
                         {data.key == false ? '' : <LineOutlined style={{ width: 100, color: '#7eb79d' }} />}
                     </div>
                 ))}
