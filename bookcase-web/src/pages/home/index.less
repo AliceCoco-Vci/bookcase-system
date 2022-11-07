@@ -1,17 +1,18 @@
 .container {
     .newInfo {
-        display: grid;
-        grid-template-rows: 300px;
-        grid-template-columns: 300px 300px 300px;
-        grid-row-gap:10px;
-        grid-column-gap:10px;
-    }
-
-    .test {
-        height: 100vh-26rem;
-        display: flex;
+        //height: 100vh-26rem;
         align-items: center;
         justify-content: center;
+        display: flex;
+        //justify-content: flex-start;
+        flex-wrap: wrap;
+        //padding: 30px;
+        .newInfoForEach {
+            margin-left: 25px;
+            margin-right: 25px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
     }
 
     .BCmenu {

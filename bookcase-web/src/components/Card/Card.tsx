@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-10-27 15:42:39
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-11-04 13:39:43
+ * @LastEditTime: 2022-11-07 18:30:36
  * @FilePath: /bookcase-web/src/components/Card/Card.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -50,7 +50,7 @@ export default function App() {
     })
   )
 
-  const [{ wheelY }, wheelApi] = useSpring(() => ({ wheelY: 0 }))
+  //const [{ wheelY }, wheelApi] = useSpring(() => ({ wheelY: 0 }))
 
   useGesture(
     {
@@ -74,7 +74,6 @@ export default function App() {
     { target, eventOptions: { passive: false } }
   )
   return (
-    <div className={styles.container}>
       <animated.div
         ref={target}
         className={styles.card}
@@ -88,8 +87,8 @@ export default function App() {
           rotateZ,
         }}>
         <div className={styles.txt}>
-          <div className={styles.title}>标题</div>
-          <div className={styles.desc}>1111111111111111111111111111111111111111</div>
+          <div className={styles.insert_time}>2022.11.12</div>
+          <div className={styles.desc}>拾忆&nbsp;乞人轶事</div>
         </div>
         <div className={styles.imgbox}>
           <Image
@@ -108,6 +107,5 @@ export default function App() {
           </Image.PreviewGroup>
         </div>
       </animated.div>
-    </div>
   )
 }
