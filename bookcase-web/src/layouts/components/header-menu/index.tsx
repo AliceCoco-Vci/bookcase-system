@@ -107,7 +107,7 @@ export default function Layout() {
 
     const getAuth = async () => {
         if (getToken()) {
-            setAuth(JSON.parse(getUserInfo()).authority)
+            setAuth(JSON.parse(getUserInfo() as string).authority)
         }
     };
 
@@ -141,7 +141,7 @@ export default function Layout() {
                     {getToken()
                         ? <Dropdown overlay={<AvatarMenu />} trigger={['hover']} >
                             <div className={styles.avater}>
-                                <div className={styles.usrname}>{JSON.parse(getUserInfo()).username}</div>
+                                <div className={styles.usrname}>{JSON.parse(getUserInfo() as string).username}</div>
                                 <DownOutlined />
                             </div>
                         </Dropdown>

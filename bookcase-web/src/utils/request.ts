@@ -1,4 +1,3 @@
-import axios from 'axios'
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import Axios from 'axios';
 import { message } from 'antd';
