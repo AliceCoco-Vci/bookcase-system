@@ -2,7 +2,7 @@
  * @Author: Dihan Li lidihan@hyperchain.cn
  * @Date: 2022-08-26 10:20:27
  * @LastEditors: Dihan Li lidihan@hyperchain.cn
- * @LastEditTime: 2022-11-03 17:12:39
+ * @LastEditTime: 2022-11-18 17:37:00
  * @FilePath: /bookcase-web/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -20,10 +20,12 @@ node v16.16.0 (npm v8.11.0)
 #### 开发中  
 1、登录`/login`      
 2、首页（资讯页）`/home`   
-`/home` - 最新动态板块（展示微博、twwiter等的最新消息，栅格布局，小卡片从左往右，从上往下，左上为最新（挂一个new的标志，管理员管理时可自主添加new的标签）），汇率查询板块（暂不知道咋做）   
+`/home` - 最新动态板块（展示微博、twwiter等的最新消息，栅格布局，小卡片从左往右，从上往下，左上为最新（挂一个new的标志，管理员管理时可自主添加new的标签）），汇率查询板块（暂不知道咋做），下拉（希望为动态形式）为书的一生展示页   
 `/home/预售信息` - 预售时程表，希望能有交互感，悬停显示基本预售信息，点击书名显示详情，详情页单独设计   
-`/home/出版社信息` - 出版社信息板块（modal卡片形式，包括官网、facebook、twiter、ins、微博、购买方式、购买教程等），各出版社进度汇总板块（链接形式+图片形式，可在前端增删改，数据由后端返回）   
+`/home/出版社信息` - 出版社信息板块（modal卡片形式，包括官网、facebook、twiter、ins、微博、购买方式、购买教程等），各出版社进度汇总板块（链接形式+图片形式，可在前端增删改，数据由后端返回，也可暂时用json文件导入）   
 3、书籍管理页`/bookcase`   
+4、后台管理页   
+
 #### Issues
 1、（已解决）layouts部分在使用history跳转页面时不会刷新，导致在不该存在的页面显示，该存在的页面不显示   
 例如：登录后·`/home`  页面上方导航栏不出现，刷新出现，退出不消失   
@@ -50,4 +52,4 @@ node v16.16.0 (npm v8.11.0)
 2、request.ts整理一下，统一代码     
 3、顶部导航栏改为未登录时只显示Home，即设立管理员身份，管理后台（目前的方式仅表面不显示）
 4、一个时间条组件，记录一本书的生命   
-5、Card添加时间、出版社、书名、使用时用map，内部自适应布局，外部栅格布局
+5、Card添加时间、出版社、书名、使用时用map
