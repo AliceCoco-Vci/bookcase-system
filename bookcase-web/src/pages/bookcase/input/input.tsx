@@ -117,7 +117,7 @@ const InputPage = () => {
         API.BookInput({
             ...values,
             startDay: moment(values.startDay).set('second', 0).set('millisecond', 0).valueOf(),
-        }).then(resp => {
+        }).then((resp: Ajax.Data) => {
             if (resp.status == 'success') {
                 message.info('录入成功!');
                 setVisible(false);

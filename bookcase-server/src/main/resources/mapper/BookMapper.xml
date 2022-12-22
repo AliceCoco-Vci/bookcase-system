@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.alicecoco.bookcaseserver.mapper.BookMapper">
-    <resultMap id="result" type="com.alicecoco.bookcaseserver.bean.Book">
+    <resultMap id="result" type="com.alicecoco.bookcaseserver.bean.MyBook">
         <id column="id" property="id" />
         <result property="title" column="title"/>
         <result property="author" column="author"/>
@@ -15,8 +15,8 @@
         <result property="info" column="info"/>
     </resultMap>
 
-    <insert id="inputNewBook" keyProperty="id" useGeneratedKeys="true" parameterType="com.alicecoco.bookcaseserver.bean.Book">
-        INSERT INTO `book`(title,author,startDay,price,press,purchaseWay,info,username,editTime) values (
+    <insert id="inputNewBook" keyProperty="id" useGeneratedKeys="true" parameterType="com.alicecoco.bookcaseserver.bean.MyBook">
+        INSERT INTO `myBook`(title,author,startDay,price,press,purchaseWay,info,username,editTime) values (
             #{title}, #{author}, #{startDay}, #{price}, #{press}, #{purchaseWay}, #{info},#{username},#{editTime})
     </insert>
 </mapper>

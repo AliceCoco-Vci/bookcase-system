@@ -72,11 +72,11 @@ const HomePage = () => {
     <div className={styles.container}>
       <div className={styles.newInfo}>
         <div className={styles.newInfoForEach}><Card/></div>
-        {/* <div className={styles.newInfoForEach}><Card/></div>
         <div className={styles.newInfoForEach}><Card/></div>
-        <div className={styles.newInfoForEach}><Card/></div> */}
+        <div className={styles.newInfoForEach}><Card/></div>
+        <div className={styles.newInfoForEach}><Card/></div>
       </div>
-      <div className={styles.svg}>
+      {/* <div className={styles.svg}>
         <svg viewBox="0 0 790 542" width="100%" height="100%">
           <defs>
             <linearGradient x1="90.6674592%" y1="40.4771205%" x2="17.4068727%" y2="55.2232143%" id="linearGradient-1">
@@ -397,7 +397,7 @@ const HomePage = () => {
             </g>
           </g>
         </svg>
-      </div>
+      </div> */}
     </div>
   );
 }

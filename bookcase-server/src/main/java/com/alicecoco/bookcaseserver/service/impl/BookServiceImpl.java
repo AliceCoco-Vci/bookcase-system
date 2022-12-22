@@ -7,7 +7,7 @@ import com.alicecoco.bookcaseserver.utils.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.alicecoco.bookcaseserver.bean.Result;
-import com.alicecoco.bookcaseserver.bean.Book;
+import com.alicecoco.bookcaseserver.bean.MyBook;
 
 @Service
 public class BookServiceImpl implements IBookService {
@@ -15,13 +15,13 @@ public class BookServiceImpl implements IBookService {
     @Autowired
     private BookMapper bookMapper;
     @Override
-    public Result inputNewBook(BaseDto<Book> dto) {
+    public Result inputNewBook(BaseDto<MyBook> dto) {
 
-        Book book=dto.getData();
+        MyBook myBook =dto.getData();
 //        System.out.println(book.getStartday());
-        book.setUsername(TokenUtil.getUsername());
-        book.setEditTime(dto.getTimeStamp());
-        if(bookMapper.inputNewBook(book)==1){
+        myBook.setUsername(TokenUtil.getUsername());
+        myBook.setEditTime(dto.getTimeStamp());
+        if(bookMapper.inputNewBook(myBook)==1){
             return new Result("success", "录入成功!");
         }else{
             return new Result("defeat", "录入失败!");

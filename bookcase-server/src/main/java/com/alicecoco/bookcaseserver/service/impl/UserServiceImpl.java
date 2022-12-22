@@ -1,6 +1,5 @@
 package com.alicecoco.bookcaseserver.service.impl;
 
-import com.alicecoco.bookcaseserver.bean.Book;
 import com.alicecoco.bookcaseserver.bean.Result;
 import com.alicecoco.bookcaseserver.common.BaseDto;
 import com.alicecoco.bookcaseserver.utils.TokenUtil;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.alicecoco.bookcaseserver.bean.User;
 import com.alicecoco.bookcaseserver.mapper.UserMapper;
 import com.alicecoco.bookcaseserver.service.IUserService;
-import com.alicecoco.bookcaseserver.bean.Result;
 
 
 @Service

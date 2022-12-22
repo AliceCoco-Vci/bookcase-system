@@ -9,7 +9,6 @@
 package com.alicecoco.bookcaseserver.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -17,8 +16,8 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@ApiModel(value = "Book", description = "BookInfo")
-public class Book {
+@ApiModel(value = "MyBook", description = "MyBookInfo")
+public class MyBook {
 
     @ApiModelProperty(value = "书籍id")
     private int id;
